@@ -1,0 +1,27 @@
+{% layout 'layout.liquid'%}
+{% block content %}
+<div>
+    <h2 class="display-6">All Cards</h2>
+    <div class="row">
+        {% for card in cards %}
+        <div class="card" style="width: 18rem;">
+            <h5 class="card-header">{{ card.title }}</h5>
+            <div class="card-body">
+                <h5 class="card-title">
+                    Ready?: {{ card.ready }}
+                </h5>
+                <p class="card-text">
+                    Body: {{ card.body }}
+                </p>
+                <p class="card-text">
+                    Amount: {{ card.amount }}
+                </p>
+                <a href="/cards/{{ card.id }}" class="btn btn-info">
+                    View {{ card.title }}
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
