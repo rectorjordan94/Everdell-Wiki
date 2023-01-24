@@ -1,12 +1,16 @@
 {% layout 'layout.liquid'%}
 {% block content %}
 <div>
-    <h2 class="display-6">All Cards</h2>
-    <div class="row">
+    <h2 class="display-6 fw-bold ms-4 mt-3">All Cards</h2>
+    <div class="row mx-3">
         {% for card in cards %}
-        <div class="card" style="width: 18rem;">
-            <h5 class="card-header">{{ card.name }}</h5>
-            <div class="card-body">
+        <div class="card col-sm-2 p-0 m-2" >
+            <div class="card-body p-0">
+                <a href="/cards/{{ card.id }}">
+                    <img src="{{ card.imgSrc }}" alt="card image" width="150" class="card-img h-100 w-100 border border-3">
+                </a>
+                
+                {% comment %}
                 <h5 class="card-title">
                     {{ card.type[0] }}
                 </h5>
@@ -19,6 +23,7 @@
                 <a href="/cards/{{ card.id }}" class="btn btn-info">
                     View {{ card.name }}
                 </a>
+            {%endcomment%}
             </div>
         </div>
         {% endfor %}

@@ -2,83 +2,83 @@
 {% block content %}
 <div class="container-md mt-5">
     <div class="row">
-        <div class="col-md-8 bg-light">
-            <h2 class="mb-2">{{ card.name }}</h2>
+        <div class="col-md-8 bg-light border">
+            <h2 class="mb-2 fw-bold pt-2">{{ card.name }}</h2>
             <div class="row">
+                <div class="col-md border">
+                    <p class="fw-bold mb-0">{{ card.rarity }} {{ card.type[1] }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md border">
+                    <p class="fw-bold mb-0">{{ card.type[0] }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 border">
+                    <p class="fw-bold mb-0">Points:</p>
+                </div>
                 <div class="col-md-9 border">
-                    {{ card.rarity }} {{ card.type[1] }}
+                    <p class="mb-0">{{ card.points }}</p>
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-3 border">
+                    <p class="fw-bold mb-0">Cost:</p>
+                </div>
                 <div class="col-md-9 border">
-                    {{ card.type[0] }}
+                    <p class="mb-0">{{ card.cost }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3 border">
-                    Points:
+                    <p class="fw-bold mb-0">Destination:</p>
                 </div>
-                <div class="col-md-6 border">
-                    {{ card.points }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 border">
-                    Cost:
-                </div>
-                <div class="col-md-6 border">
-                    {{ card.cost }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 border">
-                    Destination:
-                </div>
-                <div class="col-md-6 border">
+                <div class="col-md-9 border">
                     {% if card.destination %}
-                        Yes
+                        <p class="mb-0">Yes</p>
                     {% else %}
-                        No
+                        <p class="mb-0">No</p>
                     {% endif %}
                 </div>
             </div>
             <div class="row ">
                 <div class="col-md-3 border">
-                    Occupancy:
+                    <p class="fw-bold mb-0">Occupancy:</p>
                 </div>
-                <div class="col-md-6 border">
+                <div class="col-md-9 border">
                     {% if card.occupancy %}
-                        {{ card.occupancy }}
+                    <p class="mb-0">{{ card.occupancy }}</p>
                     {% else %}
-                        N/A
+                    <p class="mb-0">N/A</p>
                     {% endif %}
                 </div>
             </div>
-            <div class="row mt-4">
+            <div class="row pt-2 border">
                 <div class="col">
-                    <h4 style="margin-bottom: 0">Effect:</h4>
+                    <h4 class="mb-0 fw-bold">Effect:</h4>
                 </div>
             </div>
             <div class="row">
-                <div class="col">
-                    {{ card.effect }}
+                <div class="col border">
+                    <p class="mb-0">{{ card.effect }}</p>
                 </div>
             </div>
             {% if card.quote %}
-                <div class="row">
+                <div class="row pt-2 border">
                     <div class="col">
-                        <h4 style="margin-bottom: 0">Quote:</h4>
+                        <h4 class="mb-0 fw-bold">Quote:</h4>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        "{{ card.quote }}"
+                    <div class="col border">
+                        <p class="mb-0 fst-italic">"{{ card.quote }}"</p>
                     </div>
                 </div>
             {% endif %}
         </div>
-        <div class="col-md-4" style="padding-left: 12">
-            <img src="images/architect.jpg" alt="architect card" width="238" height="350" >
+        <div class="col-md-4">
+            <img src="{{ card.imgSrc }}" alt="architect card" width="255" height="360" class="border border-3">
         </div>
     </div>
     
