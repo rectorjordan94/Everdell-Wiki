@@ -1,26 +1,109 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-<div class="container-md">
-    <article>
-        <h2>
-            {{ card.title }} -
-            {% if card.ready %}
-            Ready
-            {% else %}
-            Not Ready
-            {%endif%}
-        </h2>
-        <h3>Amount: {{ card.amount }}</h3>
-        <h6>Body: {{ card.body }}</h6>
-        {% if card.owner == userId %}
+<div class="container-md mt-5">
+    <div class="row">
+        <div class="col-md-8 bg-light">
+            <h2 class="mb-2">{{ card.name }}</h2>
+            <div class="row">
+                <div class="col-md-9 border">
+                    {{ card.rarity }} {{ card.type[1] }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9 border">
+                    {{ card.type[0] }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 border">
+                    Points:
+                </div>
+                <div class="col-md-6 border">
+                    {{ card.points }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 border">
+                    Cost:
+                </div>
+                <div class="col-md-6 border">
+                    {{ card.cost }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 border">
+                    Destination:
+                </div>
+                <div class="col-md-6 border">
+                    {% if card.destination %}
+                        Yes
+                    {% else %}
+                        No
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-md-3 border">
+                    Occupancy:
+                </div>
+                <div class="col-md-6 border">
+                    {% if card.occupancy %}
+                        {{ card.occupancy }}
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col">
+                    <h4 style="margin-bottom: 0">Effect:</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ card.effect }}
+                </div>
+            </div>
+            {% if card.quote %}
+                <div class="row">
+                    <div class="col">
+                        <h4 style="margin-bottom: 0">Quote:</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        "{{ card.quote }}"
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="col-md-4" style="padding-left: 12">
+            <img src="images/architect.jpg" alt="architect card" width="238" height="350" >
+        </div>
+    </div>
+    
+    {% if card.owner == userId %}
         <div class="btn-group">
-
             <a href="/cards/{{ card.id }}/edit" class="btn btn-primary">Edit</a>
             <form action="/cards/{{ card.id }}?_method=DELETE" method="POST">
                 <input type="submit" value="Delete" class="btn btn-danger">
             </form>
         </div>
         {% endif %}
-    </article>
 </div>
 {% endblock %}
+
+name: { type: String, required: true },
+		rarity: { type: String, required: true },
+        type: { type: Array, required: true },
+		points: { type: Number, required: true },
+		cost: { type: String, required: true },
+		pairedWith: { type: String, required: true },
+		effect: { type: String, required: true },
+		quote: { type: String },
+		destination: { type: Boolean },
+		occupancy: { type: Number },
+		owner: {
+			type: Schema.Types.ObjectID,
+			ref: 'User',
+		}

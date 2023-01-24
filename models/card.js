@@ -9,10 +9,17 @@ const { Schema, model } = mongoose
 
 const cardSchema = new Schema(
 	{
-		title: { type: String, required: true },
-		body: { type: String, required: true },
-        amount: { type: Number, required: true },
-		ready: { type: Boolean, required: true },
+		name: { type: String, required: true },
+		rarity: { type: String, required: true },
+        type: { type: Array, required: true },
+		points: { type: Number, required: true },
+		cost: { type: String, required: true },
+		pairedWith: { type: String, required: true },
+		effect: { type: String, required: true },
+		quote: { type: String },
+		destination: { type: Boolean },
+		occupancy: { type: Number },
+		imgSrc: { type: String },
 		owner: {
 			type: Schema.Types.ObjectID,
 			ref: 'User',
