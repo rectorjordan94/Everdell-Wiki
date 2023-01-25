@@ -23,6 +23,7 @@ router.use((req, res, next) => {
 
 // index ALL
 router.get('/', (req, res) => {
+	console.log(req.query)
 	Card.find({})
 		.then(cards => {
 			const username = req.session.username
@@ -31,6 +32,17 @@ router.get('/', (req, res) => {
 		})
 		.catch(error => {
 			res.redirect(`/error?error=${error}`)
+		})
+})
+
+router.get('/critters', (req, res) => {
+	const { username, userId, loggedIn } = req.session
+	Card.find().where({ type: 'Critter'})
+		.then(cards => {
+			res.render('cards/index', { cards, ...req.session })
+		})
+		.catch(err => {
+			res.redirect(`/error?error=${err}`)
 		})
 })
 
