@@ -111,7 +111,7 @@
         {% if card.comments.length > 0 %}
             <div class="container-sm justify-content-center">
                 {% for comm in card.comments %}
-                    {% render '../comment.liquid', comm: comm, userId: userId, card: card %}
+                    {% render './comment.liquid', comm: comm, userId: userId, card: card %}
                 {% endfor %}
             </div>
         {% else %}

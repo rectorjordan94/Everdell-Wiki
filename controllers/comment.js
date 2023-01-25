@@ -58,6 +58,7 @@ router.post('/event/:eventId', (req, res) => {
 
 //* DELETE -> /comments/delete/<someCardId>/<someCommentId>
 router.delete('/delete/:cardId/:commId', (req, res) => {
+    console.log(req.params)
     const { cardId, commId } = req.params
     Card.findById(cardId)
         .then(card => {
@@ -67,6 +68,28 @@ router.delete('/delete/:cardId/:commId', (req, res) => {
                     theComment.remove()
                     card.save()
                     res.redirect(`/cards/${card.id}`)
+                } else {
+                    res.redirect(`/error?error=You%20are%20not%20allowed%20to%delete%20this%comment`)
+                }
+            }
+        })
+        .catch(err => {
+            console.log(err)
+            res.redirect(`/error?error=${err}`)
+    })
+})
+
+router.delete('/delete/event/:eventId/:commId', (req, res) => {
+    console.log(req.params)
+    const { eventId, commId } = req.params
+    Event.findById(eventId)
+        .then(event => {
+            const theComment = event.comments.id(commId)
+            if (req.session.loggedIn) {
+                if (theComment.author == req.session.userId) {
+                    theComment.remove()
+                    event.save()
+                    res.redirect(`/events/${event.id}`)
                 } else {
                     res.redirect(`/error?error=You%20are%20not%20allowed%20to%delete%20this%comment`)
                 }

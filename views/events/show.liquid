@@ -60,7 +60,7 @@
         {% if event.comments.length > 0 %}
             <div class="container-sm justify-content-center">
                 {% for comm in event.comments %}
-                    {% render '../comment.liquid', comm: comm, userId: userId, card: card %}
+                    {% render './comment.liquid', comm: comm, userId: userId, event: event %}
                 {% endfor %}
             </div>
         {% else %}
