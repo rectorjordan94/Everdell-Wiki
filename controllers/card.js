@@ -84,7 +84,6 @@ router.get('/:id/edit', (req, res) => {
 // update route
 router.put('/:id', (req, res) => {
 	const cardId = req.params.id
-
 	Card.findByIdAndUpdate(cardId, req.body, { new: true })
 		.then(card => {
 			res.redirect(`/cards/${card.id}`)
@@ -98,6 +97,7 @@ router.put('/:id', (req, res) => {
 router.get('/:id', (req, res) => {
 	const cardId = req.params.id
 	Card.findById(cardId)
+		.populate('comments.author', 'username')
 		.then(card => {
             const {username, loggedIn, userId} = req.session
 			res.render('cards/show', { card, username, loggedIn, userId })

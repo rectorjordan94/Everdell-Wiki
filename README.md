@@ -125,7 +125,6 @@ User: {
   username: String,
   password: String
 }
-
 ```
 
 ## Entity Relationship Diagram

@@ -7,6 +7,9 @@ const User = require('./user')
 // destructure the schema and model constructors from mongoose
 const { Schema, model } = mongoose
 
+// import comment schema to use as a subdocument
+const commentSchema = require('./comment')
+
 const cardSchema = new Schema(
 	{
 		name: { type: String, required: true },
@@ -23,7 +26,8 @@ const cardSchema = new Schema(
 		owner: {
 			type: Schema.Types.ObjectID,
 			ref: 'User',
-		}
+		},
+		comments: [commentSchema]
 	},
 	{ timestamps: true }
 )
