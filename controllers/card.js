@@ -74,7 +74,7 @@ router.get('/:id/edit', (req, res) => {
 	const cardId = req.params.id
 	Card.findById(cardId)
 		.then(card => {
-			res.render('cards/edit', { card })
+			res.render('cards/edit', { card, ...req.session })
 		})
 		.catch((error) => {
 			res.redirect(`/error?error=${error}`)
@@ -84,7 +84,6 @@ router.get('/:id/edit', (req, res) => {
 // update route
 router.put('/:id', (req, res) => {
 	const cardId = req.params.id
-	req.body.ready = req.body.ready === 'on' ? true : false
 
 	Card.findByIdAndUpdate(cardId, req.body, { new: true })
 		.then(card => {
