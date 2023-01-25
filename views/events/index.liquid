@@ -1,14 +1,17 @@
 {% layout 'layout.liquid'%}
 {% block content %}
 <div>
-    <h2 class="display-6 fw-bold ms-4 mt-3 text-white">All Cards</h2>
+    <h2 class="display-6 fw-bold ms-4 mt-3">All Events</h2>
     <div class="row mx-3">
-        {% for card in cards %}
+        {% for event in events %}
         <div class="card col-sm-2 p-0 m-2" >
             <div class="card-body p-0">
-                <a href="/cards/{{ card.id }}">
-                    <img src="{{ card.imgSrc }}" alt="card image" width="150" class="card-img h-100 w-100 border border-3">
+                <h2>{{ event.name }}</h2>
+                {% comment %}
+                <a href="/cards/{{ event.id }}">
+                    <img src="{{ event.imgSrc }}" alt="card image" width="150" class="card-img h-100 w-100 border border-3">
                 </a>
+                {% endcomment %}
                 
                 {% comment %}
                 <h5 class="card-title">

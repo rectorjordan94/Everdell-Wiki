@@ -11,8 +11,11 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             {% if loggedIn %}
                 <a href="/cards" class="nav-link text-light me-3">Cards</a>
+                <a href="/events" class="nav-link text-light me-3">Events</a>
                 <a href="/cards/new" class="nav-link text-light me-3">New</a>
+                {% comment %}
                 <a href="/cards/mine" class="nav-link text-light me-3">My Cards</a>
+                {% endcomment %}
                 <a href="/auth/logout" class="nav-link text-light me-3">Log Out</a>
             {% else %}
                 <a href="/auth/signup" class="nav-link text-light me-3">Sign Up</a>
