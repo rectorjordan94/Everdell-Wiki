@@ -6,12 +6,9 @@
         {% for event in events %}
         <div class="card col-sm-2 p-0 m-2" >
             <div class="card-body p-0">
-                <h2>{{ event.name }}</h2>
-                {% comment %}
-                <a href="/cards/{{ event.id }}">
-                    <img src="{{ event.imgSrc }}" alt="card image" width="150" class="card-img h-100 w-100 border border-3">
-                </a>
-                {% endcomment %}
+                <p class="mb-0 card-header">{{ event.name }}</p>
+                    <img src="{{ event.imgSrc }}" alt="card image" class="card-img w-75 h-75">
+                
                 
                 {% comment %}
                 <h5 class="card-title">

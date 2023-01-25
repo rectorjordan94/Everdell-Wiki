@@ -4,6 +4,8 @@ const User = require('./user')
 
 const { Schema, model } = mongoose
 
+const commentSchema = require('./comment')
+
 const eventSchema = new Schema({
     name: {
         type: String,
@@ -13,16 +15,15 @@ const eventSchema = new Schema({
         type: Array,
         required: true
     },
-    effect: {
+    ability: {
+        type: String,
+    },
+    scoring: {
         type: String,
         required: true
     },
-    points: {
-        type: Number
-    }
-    owner: {
-        type: Schema.Types.ObjectID,
-        ref: 'User',
+    imgSrc: {
+        type: String
     },
     comments: [commentSchema]
 })
