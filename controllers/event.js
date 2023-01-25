@@ -18,4 +18,18 @@ router.get('/', (req, res) => {
 		})
 })
 
+// show route
+router.get('/:id', (req, res) => {
+	const eventId = req.params.id
+	Event.findById(eventId)
+		.populate('comments.author', 'username')
+		.then(event => {
+            const {username, loggedIn, userId} = req.session
+			res.render('events/show', { event, username, loggedIn, userId })
+		})
+		.catch((error) => {
+			res.redirect(`/error?error=${error}`)
+		})
+})
+
 module.exports = router

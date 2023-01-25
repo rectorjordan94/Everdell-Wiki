@@ -1,0 +1,69 @@
+{% layout 'layout.liquid' %}
+{% block content %}
+<div class="container-md mt-5">
+    <div class="row">
+        <div class="col-md-8 bg-light border">
+            <h2 class="mb-2 fw-bold pt-2">{{ event.name }}</h2>
+            <div class="row">
+                <div class="col-md-3 border">
+                    <p class="fw-bold mb-0">Required Cards:</p>
+                </div>
+                <div class="col-md-9 border">
+                    <p class="mb-0">{{ event.requiredCards[0] }}, {{ event.requiredCards[1] }}</p>
+                </div>
+            </div>
+            {% if event.ability %}
+            <div class="row pt-2 border">
+                <div class="col">
+                    <h4 class="mb-0 fw-bold">Ability:</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col border">
+                    <p class="mb-0">{{ event.ability }}</p>
+                </div>
+            </div>
+            {% endif %}
+                <div class="row pt-2 border">
+                    <div class="col">
+                        <h4 class="mb-0 fw-bold">Scoring:</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col border">
+                        <p class="mb-0 fst-italic">{{ event.scoring }}</p>
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-4">
+            <img src="{{ event.imgSrc }}" alt="architect card" width="160" height="230" class="border border-3 pe-1 bg-white">
+        </div>
+    </div>
+</div>
+{% if loggedIn %}
+            <div class="col-md-6">
+                <form action="/comments/event/{{event.id}}" method="POST">
+                    <fieldset>
+                        <legend>New Comment</legend>
+                        <label class="form-label">Comment:</label>
+                        <input type="text" name="note" class="form-control mb-1">
+                    </fieldset>
+                    <input type="submit" class="btn btn-success" value="Add Comment">
+                </form>
+            </div>
+        {% else %}
+            <div class="col-md-6">
+                <small>If you'd like to leave a comment, please log in...</small>
+            </div>
+        {% endif %}
+        <hr>
+        {% if event.comments.length > 0 %}
+            <div class="container-sm justify-content-center">
+                {% for comm in event.comments %}
+                    {% render '../comment.liquid', comm: comm, userId: userId, card: card %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <small>No comments yet...</small>
+        {% endif %}
+{% endblock %}
