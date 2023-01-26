@@ -1,31 +1,20 @@
 {% layout 'layout.liquid'%}
 {% block content %}
 <div>
-    <div class="row mx-3">
-        <h2 class="display-6 fw-bold ms-2 mt-3 text-black">{{ type }} Cards</h2>
-        {% for card in cards %}
-        <div class="card col-sm-2 p-0 m-2" >
-            <div class="card-body p-0">
-                <a href="/cards/{{ card.id }}">
-                    <img src="{{ card.imgSrc }}" alt="{{card.name}} card" width="150" class="card-img h-100 w-100 border border-3 border-success">
-                </a>
-                {% comment %}
-                <h5 class="card-title">
-                    {{ card.type[0] }}
-                </h5>
-                <p class="card-text">
-                    {{ card.rarity }} {{ card.type[1] }} Points: {{ card.points }}
-                </p>
-                <p class="card-text">
-                    {{ card.effect }}
-                </p>
-                <a href="/cards/{{ card.id }}" class="btn btn-info">
-                    View {{ card.name }}
-                </a>
-            {%endcomment%}
+    <div class="container-lg bg-white mx-auto shadow">
+        <h2 class="display-5 fw-bold ms-2 mt-3 text-black pt-2 mb-0">{{ type }} Cards</h2>
+        <div class="row mx-auto">
+            {% for card in cards %}
+            <div class="card col-sm-2 d-flex justify-content-center py-2 border-0" >
+                <p class="mb-0 text-center fw-semibold">{{card.name}}</p>
+                <div class="card-body p-0">
+                    <a href="/cards/{{ card.id }}">
+                        <img src="{{ card.imgSrc }}" alt="{{card.name}} card" width="150" class="card-img h-100 w-100 border border-3 border-success">
+                    </a>
+                </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </div>
 {% endblock %}
