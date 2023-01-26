@@ -65,8 +65,9 @@ type.forEach(type => {
 	router.get(`/${typeRoute}`, (req, res) => {
 		Card.find().where({ type: `${type}` })
 			.then(cards => {
+				console.log(type)
 				const { username, userId, loggedIn } = req.session
-				res.render('cards/index', { cards, username, loggedIn, userId})
+				res.render('cards/index', { cards, type, username, loggedIn, userId})
 			})
 			.catch(err => res.redirect(`/error?error=${err}`))
 	})

@@ -1,8 +1,8 @@
 {% layout 'layout.liquid'%}
 {% block content %}
 <div>
-    <h2 class="display-6 fw-bold ms-4 mt-3 text-black">All Cards</h2>
     <div class="row mx-3">
+        <h2 class="display-6 fw-bold ms-2 mt-3 text-black">{{ type }} Cards</h2>
         {% for card in cards %}
         <div class="card col-sm-2 p-0 m-2" >
             <div class="card-body p-0">
