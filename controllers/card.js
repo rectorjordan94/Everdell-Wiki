@@ -35,15 +35,40 @@ router.get('/', (req, res) => {
 		})
 })
 
-router.get('/critters', (req, res) => {
-	const { username, userId, loggedIn } = req.session
-	Card.find().where({ type: 'Critter'})
-		.then(cards => {
-			res.render('cards/index', { cards, ...req.session })
-		})
-		.catch(err => {
-			res.redirect(`/error?error=${err}`)
-		})
+// router.get('/critters', (req, res) => {
+// 	Card.find().where({ type: 'Critter'})
+// 		.then(cards => {
+// 			const { username, userId, loggedIn } = req.session
+// 			res.render('cards/index', { cards, username, loggedIn, userId })
+// 		})
+// 		.catch(err => {
+// 			res.redirect(`/error?error=${err}`)
+// 		})
+// })
+
+// router.get('/constructions', (req, res) => {
+// 	Card.find().where({ type: 'Construction'})
+// 		.then(cards => {
+// 			const { username, userId, loggedIn } = req.session
+// 			res.render('cards/index', { cards, username, loggedIn, userId })
+// 		})
+// 		.catch(err => {
+// 			res.redirect(`/error?error=${err}`)
+// 		})
+// })
+
+const type = ['Tan Traveler', 'Green Production', 'Red Destination', 'Blue Governance', 'Purple Prosperity', 'Critter', 'Construction']
+
+type.forEach(type => {
+	let typeRoute = type.replace(' ', '%20')
+	router.get(`/${typeRoute}`, (req, res) => {
+		Card.find().where({ type: `${type}` })
+			.then(cards => {
+				const { username, userId, loggedIn } = req.session
+				res.render('cards/index', { cards, username, loggedIn, userId})
+			})
+			.catch(err => res.redirect(`/error?error=${err}`))
+	})
 })
 
 // index that shows only the user's cards
