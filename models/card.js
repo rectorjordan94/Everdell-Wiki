@@ -13,7 +13,6 @@ const commentSchema = require('./comment')
 const cardSchema = new Schema(
 	{
 		name: { type: String, required: true },
-		rarity: { type: String, required: true },
         type: { type: Array, required: true },
 		points: { type: Number, required: true },
 		cost: { type: String, required: true },

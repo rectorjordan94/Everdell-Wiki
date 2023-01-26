@@ -6,12 +6,12 @@
             <h2 class="mb-2 fw-bold pt-2">{{ card.name }}</h2>
             <div class="row">
                 <div class="col-md border">
-                    <div><a class="fw-bold mb-0 text-decoration-none link-success" href=""">{{ card.rarity }}</a> <a class="fw-bold mb-0 text-decoration-none link-success" href="{%if card.type[1] == 'Critter'%}/cards/Critter{% elsif card.type[1] == 'Construction' %}/cards/Construction{% endif %}">{{ card.type[1] }}</a></div>
+                    <div><a class="fw-bold mb-0 text-decoration-none link-success" href=""">{{ card.type[0] }}</a> <a class="fw-bold mb-0 text-decoration-none link-success" href="{%if card.type[1] == 'Critter'%}/cards/Critter{% elsif card.type[1] == 'Construction' %}/cards/Construction{% endif %}">{{ card.type[1] }}</a></div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md border">
-                    <a href="{% if card.type[0] == 'Tan Traveler'%}/cards/Tan%20Traveler{% elsif card.type[0] == 'Green Production'%}/cards/Green%20Production{% elsif card.type[0] == 'Red Destination'%}/cards/Red%20Destination{% elsif card.type[0] == 'Blue Governance'%}/cards/Blue%20Governance{% elsif card.type[0] == 'Purple Prosperity'%}/cards/Purple%20Prosperity{% endif %}" class="fw-bold mb-0 text-decoration-none link-success">{{ card.type[0] }}</a>
+                    <a href="{% if card.type[2] == 'Tan Traveler'%}/cards/Tan%20Traveler{% elsif card.type[2] == 'Green Production'%}/cards/Green%20Production{% elsif card.type[2] == 'Red Destination'%}/cards/Red%20Destination{% elsif card.type[2] == 'Blue Governance'%}/cards/Blue%20Governance{% elsif card.type[2] == 'Purple Prosperity'%}/cards/Purple%20Prosperity{% endif %}" class="fw-bold mb-0 text-decoration-none link-success">{{ card.type[2] }}</a>
                 </div>
             </div>
             <div class="row">

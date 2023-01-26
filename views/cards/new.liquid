@@ -12,11 +12,20 @@
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label for="rarity" class="input-group-text">Rarity</label>
+                <label for="type" class="input-group-text">Rarity</label>
             </div>
-            <select name="rarity" id="type" class="custom-select form-select">
+            <select name="type" id="type" class="custom-select form-select">
                 <option value="Common">Common</option>
                 <option value="Unique">Unique</option>
+            </select>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="category" class="input-group-text">Category</label>
+            </div>
+            <select name="type" id="type" class="custom-select form-select">
+                <option value="Critter">Critter</option>
+                <option value="Construction">Construction</option>
             </select>
         </div>
         <div class="input-group mb-3">
@@ -33,15 +42,6 @@
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label for="category" class="input-group-text">Category</label>
-            </div>
-            <select name="type" id="type" class="custom-select form-select">
-                <option value="Critter">Critter</option>
-                <option value="Construction">Construction</option>
-            </select>
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
                 <span class="input-group-text">Points</span>
             </div>
             <input type="number" name="points" class="form-control" placeholder="enter card point value">
@@ -50,7 +50,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Cost</span>
             </div>
-            <input type="number" name="cost" class="form-control" placeholder="enter card cost">
+            <input type="string" name="cost" class="form-control" placeholder="enter card cost">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">

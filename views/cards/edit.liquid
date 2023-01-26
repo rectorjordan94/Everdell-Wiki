@@ -58,14 +58,14 @@
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label for="rarity" class="input-group-text">Rarity</label>
+                <label for="type" class="input-group-text">Rarity</label>
             </div>
-            <select name="rarity" id="type" class="custom-select form-select">
-                <option value="Common" {% if card.rarity == 'Common' %}
+            <select name="type" id="type" class="custom-select form-select">
+                <option value="Common" {% if card.type[0] == 'Common' %}
                                             selected
                                         {% endif %}
                 >Common</option>
-                <option value="Unique" {% if card.rarity == 'Unique' %}
+                <option value="Unique" {% if card.type[0] == 'Unique' %}
                                             selected
                                         {% endif %}
             >Unique</option>
@@ -73,39 +73,7 @@
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label for="type" class="input-group-text">Type</label>
-            </div>
-            <select name="type" id="type" class="custom-select form-select">
-                <option value="Tan Traveler" 
-                {% if card.type[0] == 'Tan Traveler' %}
-                    selected
-                {% endif %}
-                >Tan Traveler</option>
-                <option value="Green Production"
-                {% if card.type[0] == 'Green Production' %}
-                    selected
-                {% endif %}
-                >Green Production</option>
-                <option value="Red Destination"
-                {% if card.type[0] == 'Red Destination' %}
-                    selected
-                {% endif %}
-                >Red Destination</option>
-                <option value="Blue Governance"
-                {% if card.type[0] == 'Blue Governance' %}
-                    selected
-                {% endif %}
-                >Blue Governance</option>
-                <option value="Purple Prosperity"
-                {% if card.type[0] == 'Purple Prosperity' %}
-                    selected
-                {% endif %}
-                >Purple Prosperity</option>
-            </select>
-        </div>
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <label for="category" class="input-group-text">Category</label>
+                <label for="type" class="input-group-text">Category</label>
             </div>
             <select name="type" id="type" class="custom-select form-select">
                 <option value="Critter"
@@ -119,6 +87,38 @@
                 {% endif %}
                 >Construction</option>
             </select>
+        </div>                                   
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <label for="type" class="input-group-text">Type</label>
+            </div>
+            <select name="type" id="type" class="custom-select form-select">
+                <option value="Tan Traveler" 
+                {% if card.type[2] == 'Tan Traveler' %}
+                    selected
+                {% endif %}
+                >Tan Traveler</option>
+                <option value="Green Production"
+                {% if card.type[2] == 'Green Production' %}
+                    selected
+                {% endif %}
+                >Green Production</option>
+                <option value="Red Destination"
+                {% if card.type[2] == 'Red Destination' %}
+                    selected
+                {% endif %}
+                >Red Destination</option>
+                <option value="Blue Governance"
+                {% if card.type[2] == 'Blue Governance' %}
+                    selected
+                {% endif %}
+                >Blue Governance</option>
+                <option value="Purple Prosperity"
+                {% if card.type[2] == 'Purple Prosperity' %}
+                    selected
+                {% endif %}
+                >Purple Prosperity</option>
+            </select>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -130,7 +130,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Cost</span>
             </div>
-            <input type="number" name="cost" class="form-control" value="{{ card.cost }}">
+            <input type="string" name="cost" class="form-control" value="{{ card.cost }}">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
