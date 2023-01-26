@@ -23,7 +23,6 @@ router.use((req, res, next) => {
 
 // index ALL
 router.get('/', (req, res) => {
-	console.log(req.query)
 	Card.find({})
 		.then(cards => {
 			const username = req.session.username
@@ -56,6 +55,8 @@ router.get('/', (req, res) => {
 // 			res.redirect(`/error?error=${err}`)
 // 		})
 // })
+
+//? add rarity to type array perhaps? would need to edit the seeds, show route, edit route, and new route to match, but then the links would work properly without having to add additional routes by hand
 
 const type = ['Tan Traveler', 'Green Production', 'Red Destination', 'Blue Governance', 'Purple Prosperity', 'Critter', 'Construction']
 

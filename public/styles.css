@@ -2,3 +2,31 @@ body {
     background-color: #e7cb9c;
 }
 
+.bg-success {
+    /* background-color: #2f4727!important; */
+    background-color: #3a5e2e!important;
+}
+
+.text-success {
+    color: #3a5e2e!important;
+}
+
+.btn-success {
+    background-color: #3a5e2e!important;
+}
+
+.border-success {
+    border-color: #3a5e2e!important;
+}
+
+.link-success {
+    color:#3a5e2e!important;
+}
+
+.link-info {
+    color: #ffffff!important;
+}
+
+.link-info:hover {
+    color:#3a5e2e!important;
+}
