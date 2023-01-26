@@ -58,7 +58,7 @@ router.get('/', (req, res) => {
 
 //? add rarity to type array perhaps? would need to edit the seeds, show route, edit route, and new route to match, but then the links would work properly without having to add additional routes by hand
 
-const type = ['Tan Traveler', 'Green Production', 'Red Destination', 'Blue Governance', 'Purple Prosperity', 'Critter', 'Construction']
+const type = ['Tan Traveler', 'Green Production', 'Red Destination', 'Blue Governance', 'Purple Prosperity', 'Critter', 'Construction', 'Common', 'Unique']
 
 type.forEach(type => {
 	let typeRoute = type.replace(' ', '%20')
