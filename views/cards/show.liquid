@@ -6,7 +6,7 @@
             <h2 class="mb-2 fw-bold pt-2">{{ card.name }}</h2>
             <div class="row">
                 <div class="col-md border">
-                    <div><a class="fw-bold mb-0 text-decoration-none link-success" href=""">{{ card.type[0] }}</a> <a class="fw-bold mb-0 text-decoration-none link-success" href="{%if card.type[1] == 'Critter'%}/cards/Critter{% elsif card.type[1] == 'Construction' %}/cards/Construction{% endif %}">{{ card.type[1] }}</a></div>
+                    <div><a class="fw-bold mb-0 text-decoration-none link-success" href="{%if card.type[0] == 'Common'%}/cards/Common{% elsif card.type[0] == 'Unique' %}/cards/Unique{% endif %}">{{ card.type[0] }}</a> <a class="fw-bold mb-0 text-decoration-none link-success" href="{%if card.type[1] == 'Critter'%}/cards/Critter{% elsif card.type[1] == 'Construction' %}/cards/Construction{% endif %}">{{ card.type[1] }}</a></div>
                 </div>
             </div>
             <div class="row">
@@ -93,7 +93,8 @@
 </div>
 {% if loggedIn %}
     <div class="container-md bg-white mt-5 shadow">
-        <h2 class="mb-2 fw-bold pt-2 pb-2">Comments</h2>
+        <h2 class="mb-2 fw-bold pt-3">Comments</h2>
+        <hr class="border border-success border-1">
         {% if card.comments.length > 0 %}
         <div class="container-md justify-content-center">
             {% for comm in card.comments %}
@@ -103,13 +104,13 @@
     {% else %}
         <p class="text-center text-muted fw-semibold pt-2">No comments yet...</p>
     {% endif %}
-        <form action="/comments/card/{{card.id}}" method="POST">
-                    <fieldset>
-                        <textarea class="form-control" name="note" placeholder="add new comment..."></textarea>
-                    </fieldset>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
-                        <input type="submit" class="btn btn-success mb-3" value="Add Comment">
-                    </div>
+        <form action="/comments/card/{{card.id}}" class="mt-3" method="POST">
+        <fieldset>
+            <textarea class="form-control rounded-0" name="note" placeholder="add new comment..."></textarea>
+        </fieldset>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+            <input type="submit" class="btn btn-success rounded-0 mb-3 fw-bold shadow" value="Add Comment">
+        </div>
                 </form>
     </div>
     {% else %}

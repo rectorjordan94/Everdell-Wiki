@@ -1,12 +1,12 @@
 {% block content %}
-    <div class="card mb-4 shadow">
+    <div class="card mb-1 shadow border-0 rounded-0 bg-success text-white">
         <div class="card-body">
             <p>{{comm.note}}</p>
             <div class="d-flex justify-content-between">
-                <small>Author: {{comm.author.username}}</small>
+                <small class="fw-bold d-flex align-items-end">Author: {{comm.author.username}}</small>
                 {% if comm.author == userId %}
                     <form action="/comments/delete/event/{{ event.id }}/{{comm.id}}?_method=DELETE" method="POST">
-                    <input type="submit" class="btn btn-danger" value="X">
+                    <input type="submit" class="btn btn-danger rounded-0 shadow fw-bold" value="X">
                 </form>
                 {% endif %}
             </div>

@@ -1,8 +1,9 @@
 {% layout 'layout.liquid'%}
 {% block content %}
-<div>
+
     <div class="container-lg bg-white mx-auto shadow">
         <h2 class="display-5 fw-bold ms-2 mt-3 text-black pt-2 mb-0">{{ type }} Cards</h2>
+        <hr class="border border-success border-1">
         <div class="row mx-auto pb-3">
             {% for card in cards %}
             <div class="card col-sm-2 d-flex justify-content-center pt-2 border-0" >
@@ -16,6 +17,6 @@
             {% endfor %}
         </div>
     </div>
-</div>
+
 {% endblock %}
 
