@@ -8,6 +8,7 @@ const CardRouter = require('./controllers/card')
 const UserRouter = require('./controllers/user')
 const CommentRouter = require('./controllers/comment')
 const EventRouter = require('./controllers/event')
+const GameInfoRouter = require('./controllers/gameInfo')
 const User = require("./models/user")
 // SEE MORE DEPENDENCIES IN ./utils/middleware.js
 // user and resource routes linked in ./utils/middleware.js
@@ -27,6 +28,7 @@ app.use('/auth', UserRouter)
 app.use('/cards', CardRouter)
 app.use('/events', EventRouter)
 app.use('/comments', CommentRouter)
+app.use('/gameinfo', GameInfoRouter)
 
 app.get('/', (req, res) => {
     const { username, userId, loggedIn } = req.session

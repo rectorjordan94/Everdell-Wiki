@@ -3,9 +3,9 @@
 <div>
     <div class="container-lg bg-white mx-auto shadow">
         <h2 class="display-5 fw-bold ms-2 mt-3 text-black pt-2 mb-0">{{ type }} Cards</h2>
-        <div class="row mx-auto">
+        <div class="row mx-auto pb-3">
             {% for card in cards %}
-            <div class="card col-sm-2 d-flex justify-content-center py-2 border-0" >
+            <div class="card col-sm-2 d-flex justify-content-center pt-2 border-0" >
                 <p class="mb-0 text-center fw-semibold">{{card.name}}</p>
                 <div class="card-body p-0">
                     <a href="/cards/{{ card.id }}">
