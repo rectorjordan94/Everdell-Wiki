@@ -9,7 +9,8 @@
                     <p class="fw-bold mb-0">Required Cards:</p>
                 </div>
                 <div class="col-md-9 border">
-                    <p class="mb-0">{{ event.requiredCards[0] }}, {{ event.requiredCards[1] }}</p>
+                    <a class="fw-bold mb-0 text-decoration-none link-success" href="/search?name={{event.requiredCards[0]}}">{{ event.requiredCards[0] }}</a>, 
+                    <a class="fw-bold mb-0 text-decoration-none link-success" href="/search?name={{event.requiredCards[1]}}">{{ event.requiredCards[1] }}</a>
                 </div>
             </div>
             {% if event.ability %}

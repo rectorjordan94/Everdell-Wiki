@@ -1,10 +1,11 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 
-<div class="container-sm">
+<div class="container-md bg-white shadow mt-5">
     <form action="/auth/signup" method="POST">
         <fieldset>
-            <legend>Sign Up Here!</legend>
+            <h2 class="display-5 fw-bold ms-2 mt-3 text-black pt-2 mb-0">Sign Up</h2>
+            <hr class="border border-success border-1">
             <label class="form-label">Username: </label>
             <input type="text" name="username" placeholder="username" class="form-control" required>
             <label class="form-label">Password</label>
