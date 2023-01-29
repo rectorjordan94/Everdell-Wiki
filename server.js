@@ -28,9 +28,10 @@ middleware(app)
 app.use('/auth', UserRouter)
 app.use('/cards', CardRouter)
 app.use('/events', EventRouter)
-app.use('/search', SearchRouter)
 app.use('/comments', CommentRouter)
 app.use('/gameinfo', GameInfoRouter)
+app.use('/search', SearchRouter)
+
 
 app.get('/', (req, res) => {
     const { username, userId, loggedIn } = req.session
