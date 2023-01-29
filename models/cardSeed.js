@@ -19,17 +19,7 @@ db.on('open', () => {
         { name: 'Courthouse', type: ['Unique', 'Construction', 'Blue Governance'], points: 2, cost: '1 Twig, 1 Resin, 2 Pebbles', pairedWith: 'Judge', effect: 'Gain 1 twig or 1 resin or 1 pebble after you play a Construction.', imgSrc: '/images/courthouse.jpg' }
         ]
 
-        // name: { type: String, required: true },
-		// rarity: { type: String, required: true },
-        // type: { type: String, required: true },
-		// points: { type: Number, required: true },
-		// critterOrConstruction: { type: String, required: true },
-		// cost: { type: String, required: true },
-		// pairedWith: { type: String, required: true },
-		// effect: { type: String, required: true },
-		// quote: { type: String },
-		// destination: { type: Boolean },
-		// occupancy: { type: Number },
+        // [judge, queen, peddler, general store, monastery, wanderer, ranger, historian, ruins, miner mole, undertaker, postal pigeon, shepherd, inn, monk, dungeon, teacher, university, woodcarver, shopkeeper, post office]
 
     Card.deleteMany({ owner: null })
         .then(() => {

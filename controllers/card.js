@@ -34,28 +34,6 @@ router.get('/', (req, res) => {
 		})
 })
 
-// router.get('/critters', (req, res) => {
-// 	Card.find().where({ type: 'Critter'})
-// 		.then(cards => {
-// 			const { username, userId, loggedIn } = req.session
-// 			res.render('cards/index', { cards, username, loggedIn, userId })
-// 		})
-// 		.catch(err => {
-// 			res.redirect(`/error?error=${err}`)
-// 		})
-// })
-
-// router.get('/constructions', (req, res) => {
-// 	Card.find().where({ type: 'Construction'})
-// 		.then(cards => {
-// 			const { username, userId, loggedIn } = req.session
-// 			res.render('cards/index', { cards, username, loggedIn, userId })
-// 		})
-// 		.catch(err => {
-// 			res.redirect(`/error?error=${err}`)
-// 		})
-// })
-
 //? add rarity to type array perhaps? would need to edit the seeds, show route, edit route, and new route to match, but then the links would work properly without having to add additional routes by hand
 
 const type = ['Tan Traveler', 'Green Production', 'Red Destination', 'Blue Governance', 'Purple Prosperity', 'Critter', 'Construction', 'Common', 'Unique']
