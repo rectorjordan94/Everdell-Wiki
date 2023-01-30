@@ -10,7 +10,7 @@ router.get('/setup', (req, res) => {
 
 router.get('/howtoplay', (req, res) => {
     const { username, userId, loggedIn } = req.session
-    res.render('gameInfo/howToPlay.liquid')
+    res.render('gameInfo/howToPlay.liquid', { loggedIn, username, userId})
 })
 
 

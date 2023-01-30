@@ -1,11 +1,11 @@
 {% block content %}
-<nav class="navbar navbar-expand-md bg-success">
+<nav class="navbar navbar-expand-md bg-success shadow">
     <div class="container-fluid d-flex">
         <a href="/" class="navbar-brand text-light fw-bold fs-4 brand">Everdell-Wiki</a>
         {% if loggedIn %}
         <a href="/cards/mine" class="nav-link text-yellow fw-bold">{{ username }} </a>
         {% endif %}
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler border-white navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -52,7 +52,7 @@
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a href="/auth/signup" class="nav-link fw-semibold">Sign Up</a>
+                    <a href="/auth/signup" class="nav-link fw-semibold text-yellow">Sign Up</a>
                 </li>
                 <li class="nav-item">
                     <a href="/auth/login" class="nav-link text-light fw-semibold">Log In</a>

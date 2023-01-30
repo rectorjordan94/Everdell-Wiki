@@ -3,13 +3,13 @@
 <div class="container-lg bg-white mx-auto shadow">
     <h2 class="display-5 fw-bold ms-2 mt-3 text-black pt-2 mb-0">Events</h2>
     <hr class="border border-success border-1">
-    <p class="fw-semibold ms-4 pe-4">You may place 1 of your workers on any remaining basic Event or special Event to achieve it. To achieve the Event, you must meet all the listed requirements on the Event, and must pay any required resources at the time you place your worker there. Only one player may achieve each Event. You have to be able to achieve the Event to place a worker on the Event. You get the worker back like normal next season.</p>
-    <div class="container-sm d-flex">
-        <div class="container-sm d-flex flex-column align-items-center">
+    <p class="fw-semibold ms-4 pe-4 text-break">You may place 1 of your workers on any remaining basic Event or special Event to achieve it. To achieve the Event, you must meet all the listed requirements on the Event, and must pay any required resources at the time you place your worker there. Only one player may achieve each Event. You have to be able to achieve the Event to place a worker on the Event. You get the worker back like normal next season.</p>
+    <div class="container-xs d-flex justify-content-center">
+        <div class="container-xs d-flex flex-column align-items-center">
             <img class="border border-success border-3 center-block" style="max-width: 200px;" src="https://assets.dized.app/project/58c15c2a-f6b6-4f78-96db-b51a1080f665/en-US/eb51938ff9a3aaa135a6ae051260d1ab/753c4db5-d466-4ece-aaa8-27e8b8ca499b-d41d8cd98f00b204e9800998ecf8427e.png" alt="board setup image">
             <p class="fw-light fst-italic text-center fs-7 mt-1">Grand Tour requires your city to contain 3 Destination cards.</p>
         </div>
-        <div class="container-sm d-flex flex-column align-items-center">
+        <div class="container-xs d-flex flex-column align-items-center">
             <img class="center-block" style="max-width: 150px;" src="https://assets.dized.app/project/58c15c2a-f6b6-4f78-96db-b51a1080f665/en-US/eb51938ff9a3aaa135a6ae051260d1ab/5250be74-09c3-4c59-b6d7-f68b1f33b77c-d41d8cd98f00b204e9800998ecf8427e.png" alt="board setup image">
             <p class="fw-light fst-italic text-center fs-7 mt-1">Pristine Chapel Ceiling requires your city to contain Woodcarver and Chapel.</p>
         </div>
@@ -22,7 +22,7 @@
             <div class="card col-sm-2 d-flex justify-content-center border-0" >
                 <div class="card-body p-0 d-flex flex-column justify-content-center">
                     <p class="mb-0 text-center fw-semibold">{{ event.name }}</p>
-                    <a href="/events/{{event.id}}"><img src="{{ event.imgSrc }}" alt="card image" width="55" height="150" class="card-img mx-auto mb-2"></a>
+                    <a href="/events/{{event.id}}"><img src="{{ event.imgSrc }}" alt="card image" class="card-img mx-auto mb-2 h-100 w-100"></a>
                 {% comment %}
                 <h5 class="card-title">
                     {{ card.type[0] }}
