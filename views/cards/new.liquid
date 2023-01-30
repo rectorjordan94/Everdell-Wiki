@@ -1,38 +1,39 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-<div class="container-sm">
+<div class="container-md bg-white shadow">
     <form action="/cards" method="POST">
-        <h2 class="mt-3 fw-bold">Create New Card</h2>
+    <h2 class="display-5 fw-bold ms-2 mt-3 text-black pt-2 mb-0">Create New Card</h2>
+    <hr class="border border-success border-1">
         <fieldset>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text">Name</span>
+                <span class="input-group-text bg-success rounded-0 text-white fw-semibold">Name</span>
             </div>
-            <input type="text" class="form-control" placeholder="enter card name" name="name">
+            <input type="text" class="form-control rounded-0" placeholder="enter card name" name="name">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label for="type" class="input-group-text">Rarity</label>
+                <label for="type" class="input-group-text bg-success rounded-0 text-white fw-semibold">Rarity</label>
             </div>
-            <select name="type" id="type" class="custom-select form-select">
+            <select name="type" id="type" class="custom-select form-select rounded-0">
                 <option value="Common">Common</option>
                 <option value="Unique">Unique</option>
             </select>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label for="category" class="input-group-text">Category</label>
+                <label for="category" class="input-group-text bg-success rounded-0 text-white fw-semibold">Category</label>
             </div>
-            <select name="type" id="type" class="custom-select form-select">
+            <select name="type" id="type" class="custom-select form-select rounded-0">
                 <option value="Critter">Critter</option>
                 <option value="Construction">Construction</option>
             </select>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label for="type" class="input-group-text">Type</label>
+                <label for="type" class="input-group-text bg-success rounded-0 text-white fw-semibold">Type</label>
             </div>
-            <select name="type" id="type" class="custom-select form-select">
+            <select name="type" id="type" class="custom-select form-select rounded-0">
                 <option value="Tan Traveler">Tan Traveler</option>
                 <option value="Green Production">Green Production</option>
                 <option value="Red Destination">Red Destination</option>
@@ -42,30 +43,30 @@
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text">Points</span>
+                <span class="input-group-text bg-success rounded-0 text-white fw-semibold">Points</span>
             </div>
-            <input type="number" name="points" class="form-control" placeholder="enter card point value">
+            <input type="number" name="points" class="form-control rounded-0" placeholder="enter card point value">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text">Cost</span>
+                <span class="input-group-text bg-success rounded-0 text-white fw-semibold">Cost</span>
             </div>
-            <input type="string" name="cost" class="form-control" placeholder="enter card cost">
+            <input type="string" name="cost" class="form-control rounded-0" placeholder="enter card cost">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label for="destination" class="input-group-text">Destination</label>
+                <label for="destination" class="input-group-text bg-success rounded-0 text-white fw-semibold">Destination</label>
             </div>
-            <select name="destination" id="destination" class="custom-select form-select">
+            <select name="destination" id="destination" class="custom-select form-select rounded-0">
                 <option value="true">Yes</option>
                 <option value="false">No</option>
             </select>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <label for="occupancy" class="input-group-text">Occupancy</label>
+                <label for="occupancy" class="input-group-text bg-success rounded-0 text-white fw-semibold">Occupancy</label>
             </div>
-            <select name="occupancy" id="occupancy" class="custom-select form-select">
+            <select name="occupancy" id="occupancy" class="custom-select form-select rounded-0">
                 <option value="N/A">N/A</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -73,30 +74,32 @@
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text">Paired With</span>
+                <span class="input-group-text bg-success rounded-0 text-white fw-semibold">Paired With</span>
             </div>
-            <input type="text" name="pairedWith" class="form-control" placeholder="enter card pair">
+            <input type="text" name="pairedWith" class="form-control rounded-0" placeholder="enter card pair">
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text p-4">Effect</span>
+                <span class="input-group-text bg-success rounded-0 text-white fw-semibold p-4">Effect</span>
             </div>
-            <textarea class="form-control" name="effect" placeholder="enter card effect"></textarea>
+            <textarea class="form-control rounded-0" name="effect" placeholder="enter card effect"></textarea>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text p-4">Quote</span>
+                <span class="input-group-text bg-success rounded-0 text-white fw-semibold p-4">Quote</span>
             </div>
-            <textarea class="form-control" name="quote" placeholder="enter card quote"></textarea>
+            <textarea class="form-control rounded-0" name="quote" placeholder="enter card quote"></textarea>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <span class="input-group-text">Image Url</span>
+                <span class="input-group-text bg-success rounded-0 text-white fw-semibold">Image Url</span>
             </div>
-            <input type="text" name="imgSrc" class="form-control" placeholder="enter image url">
+            <input type="text" name="imgSrc" class="form-control rounded-0" placeholder="enter image url">
         </div>
         </fieldset>
-        <input type="submit" value="Create New Card" class="btn btn-success">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-2">
+        <input type="submit" value="Create" class="btn btn-success rounded-0 my-2 fw-bold shadow">
+    </div>
     </form>
 </div>
 {% endblock %}
