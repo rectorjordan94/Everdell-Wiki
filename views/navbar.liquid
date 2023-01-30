@@ -1,51 +1,61 @@
 {% block content %}
 <nav class="navbar navbar-expand-md bg-success">
-    <div class="container-fluid">
-        <a href="/" class="navbar-brand text-light fw-bold">Everdell-Wiki</a>
+    <div class="container-fluid d-flex">
+        <a href="/" class="navbar-brand text-light fw-bold fs-4 brand">Everdell-Wiki</a>
         {% if loggedIn %}
-        <a href="/cards/mine" class="nav-link text-light">Hello {{ username }} </a>
+        <a href="/cards/mine" class="nav-link text-darkgreen fw-bold">{{ username }} </a>
         {% endif %}
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
-                {% if loggedIn %}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle text-light fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Cards
                     </a>
                     <ul class="dropdown-menu bg-success">
                         <li><a href="/cards" class="dropdown-item link-info text-light">All Cards</a></li>
-                        <li><hr class="dropdown-divider border-white opacity-25"></li>
+                        <li><hr class="dropdown-divider border-white opacity-25 m-hr"></li>
                         <li><a href="/cards/Critter" class="dropdown-item text-light link-info">Critter</a></li>
                         <li><a href="/cards/Construction" class="dropdown-item text-light link-info">Construction</a></li>
-                        <li><hr class="dropdown-divider border-white opacity-25"></li>
+                        <li><hr class="dropdown-divider border-white opacity-25 m-hr"></li>
                         <li><a href="/cards/Common" class="dropdown-item text-light link-info">Common</a></li>
                         <li><a href="/cards/Unique" class="dropdown-item text-light link-info">Unique</a></li>
-                        <li><hr class="dropdown-divider border-white opacity-25"></li>
+                        <li><hr class="dropdown-divider border-white opacity-25 m-hr"></li>
                         <li><a href="/cards/Tan%20Traveler" class="dropdown-item text-light link-info">Tan Traveler</a></li>
                         <li><a href="/cards/Green%20Production" class="dropdown-item text-light link-info">Green Production</a></li>
                         <li><a href="/cards/Red%20Destination" class="dropdown-item text-light link-info">Red Destination</a></li>
                         <li><a href="/cards/Blue%20Governance" class="dropdown-item text-light link-info">Blue Governance</a></li>
                         <li><a href="/cards/Purple%20Prosperity" class="dropdown-item text-light link-info">Purple Prosperity</a></li>
+                        {% if loggedIn %}
+                        <li><hr class="dropdown-divider border-white opacity-25 m-hr"></li>
+                        <li><a href="/cards/new" class="dropdown-item text-light link-info">New Card</a></li>
+                        {% endif %}
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="/events" class="nav-link text-light">Events</a>
+                    <a href="/events" class="nav-link text-light fw-semibold">Events</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-light fw-semibold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Game Info
+                    </a>
+                    <ul class="dropdown-menu bg-success">
+                        <li><a href="/cards" class="dropdown-item link-info text-light">Setup</a></li>
+                        <li><hr class="dropdown-divider border-white opacity-25 m-hr"></li>
+                        <li><a href="/cards" class="dropdown-item link-info text-light">How to Play</a></li>
+                    </ul>
+                {% if loggedIn %}
                 <li class="nav-item">
-                    <a href="/cards/new" class="nav-link text-light">New</a>
-                </li>
-                <li class="nav-item">
-                    <a href="/auth/logout" class="nav-link text-light">Log Out</a>
+                    <a href="/auth/logout" class="nav-link text-light fw-semibold">Log Out</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a href="/auth/signup" class="nav-link text-light">Sign Up</a>
+                    <a href="/auth/signup" class="nav-link fw-semibold">Sign Up</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/auth/login" class="nav-link text-light">Sign In</a>
+                    <a href="/auth/login" class="nav-link text-light fw-semibold">Log In</a>
                 </li>
                 {% endif %}
             </ul>
