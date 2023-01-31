@@ -49,14 +49,7 @@ As a user, I want the ability to:
 | /cards/:id      | PATCH/PUT     | update
 | /cards/id       | DELETE        | destroy
 
-## Locations
-
-| **URL**         | **HTTP Verb** | **Action** |
-|-----------------|---------------|------------|
-| /locations      | GET           | index
-| /locations/:id  | GET           | show
-
-## Events
+#### Events
 
 | **URL**         | **HTTP Verb** | **Action** |
 |-----------------|---------------|------------|
@@ -80,11 +73,18 @@ As a user, I want the ability to:
 | /comments/:cardId                   | POST          | create     |
 | /comments/delete/:cardId/:commentId | GET           | destroy    |
 
+#### Game Info
+
+| **URL**             | **HTTP Verb** | **Action** |
+|---------------------|---------------|------------|
+| /gameInfo/setup     | GET           | show
+| /gameInfo/howToPlay | GET           | show
+
 ## Wireframes
 
-![Home](images/HOME.png)
+![Home](images/HOME1.png)
 
-![Card](images/CARDS.png)
+![Card](images/CARDS1.png)
 
 ![Show](images/SHOW%20-%20CARD.png)
 
@@ -94,36 +94,38 @@ As a user, I want the ability to:
 
 ## Models
 
-```
+```js
 Card: {
   name: String,
-  quantity: Number,
   type: String,
-  cost: String,
-  description: String,
-  rarity: String,
   points: Number,
-  critter: Boolean,
-  construction: Boolean
-}
-
-Location: {
-  name: String,
+  cost: String,
+  destination: Boolean,
   occupancy: Number,
-  effect: String
+  pairedWith: String,
+  effect: String,
+  quote: String,
+  imageUrl: String,
+  comments: [CommentSchema]
 }
 
 Event: {
   name: String,
-  points: Number,
-  description: String,
-  special: Boolean,
-  cardsRequired: [String]
+  requiredCards: String,
+  ability: String,
+  scoring: String,
+  imgSrc: String,
+  comments: [CommentSchema]
 }
 
 User: {
   username: String,
   password: String
+}
+
+Comment: {
+  note: String,
+  author: Schema.Types.ObjectId
 }
 ```
 

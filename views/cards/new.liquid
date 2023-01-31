@@ -67,7 +67,6 @@
                 <label for="occupancy" class="input-group-text bg-success rounded-0 text-white fw-semibold">Occupancy</label>
             </div>
             <select name="occupancy" id="occupancy" class="custom-select form-select rounded-0">
-                <option value="N/A">N/A</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
             </select>
@@ -102,6 +101,19 @@
         </div>
     </form>
 </div>
+<script>
+    const destination = document.getElementById('destination')
+    const occupancy = document.getElementById('occupancy')
+
+    destination.addEventListener('input', () => {
+        if(destination.options[1].selected == true) {
+            console.log('not a destination')
+            occupancy.disabled = true;
+        } else {
+            occupancy.disabled = false;
+        }
+    })
+</script>
 {% endblock %}
 
 {% comment %}
