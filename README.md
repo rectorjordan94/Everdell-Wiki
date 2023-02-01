@@ -86,11 +86,9 @@ As a user, I want the ability to:
 
 ![Card](images/CARDS1.png)
 
-![Show](images/SHOW%20-%20CARD.png)
+![Show](images/SHOWCARD1.png)
 
-![Edit](images/EDIT%20-%20CARD.png)
-
-![Login](images/LOG%20IN.png)
+![New](images/NEW1.png)
 
 ## Models
 
@@ -131,5 +129,5 @@ Comment: {
 
 ## Entity Relationship Diagram
 
-![ERD](images/Wiki%20ERD.png)
+![ERD](images/Wiki%20ERD%20(1).png)
 

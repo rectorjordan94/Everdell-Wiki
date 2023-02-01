@@ -30,7 +30,7 @@
             <div class="input-group-prepend">
                 <label for="type" class="input-group-text bg-success rounded-0 text-white fw-semibold">Category</label>
             </div>
-            <select name="type" id="type" class="custom-select form-select rounded-0">
+            <select name="type" id="critOrConst" class="custom-select form-select rounded-0">
                 <option value="Critter"
                 {% if card.type[1] == 'Critter' %}
                     selected
@@ -87,6 +87,7 @@
             </div>
             <input type="string" name="cost" class="form-control rounded-0" value="{{ card.cost }}">
         </div>
+        {% if card.destination %}
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <label for="destination" class="input-group-text bg-success rounded-0 text-white fw-semibold">Destination</label>
@@ -101,11 +102,11 @@
                 <label for="occupancy" class="input-group-text bg-success rounded-0 text-white fw-semibold">Occupancy</label>
             </div>
             <select name="occupancy" id="occupancy" class="custom-select form-select rounded-0">
-                <option value="1">{% if card.occupancy == 1 %}1</option>
-                <option value="2">{% elsif card.occupancy == 2 %}2</option>
-                <option value="N/A">{% else %}N/A{% endif %}</option>
+                <option value="1">{% if card.occupancy == 1 %}1{% endif %}</option>
+                <option value="2">{% if card.occupancy == 2 %}2{% endif %}</option>
             </select>
         </div>
+        {% endif %}
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text bg-success rounded-0 text-white fw-semibold">Paired With</span>
@@ -118,12 +119,14 @@
             </div>
             <textarea class="form-control rounded-0" name="effect">{{ card.effect }}</textarea>
         </div>
+        {% if card.quote %}
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text bg-success rounded-0 text-white fw-semibold p-4">Quote</span>
             </div>
-            <textarea class="form-control rounded-0" name="quote">{% if card.quote %}{{ card.quote }}{% endif %}</textarea>
+            <textarea class="form-control rounded-0" name="quote" id="quote">{{ card.quote }}</textarea>
         </div>
+        {% endif %}
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text bg-success rounded-0 text-white fw-semibold">Image Url</span>
@@ -139,4 +142,5 @@
         </div>
     </form>
 </div>
+
 {% endblock %}
