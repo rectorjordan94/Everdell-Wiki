@@ -24,7 +24,7 @@
             <div class="input-group-prepend">
                 <label for="category" class="input-group-text bg-success rounded-0 text-white fw-semibold">Category</label>
             </div>
-            <select name="type" id="type" class="custom-select form-select rounded-0">
+            <select name="type" id="critOrConst" class="custom-select form-select rounded-0">
                 <option value="Critter">Critter</option>
                 <option value="Construction">Construction</option>
             </select>
@@ -87,7 +87,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text bg-success rounded-0 text-white fw-semibold p-4">Quote</span>
             </div>
-            <textarea class="form-control rounded-0" name="quote" placeholder="enter card quote"></textarea>
+            <textarea class="form-control rounded-0" name="quote" placeholder="enter card quote" id="quote"></textarea>
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -104,10 +104,19 @@
 <script>
     const destination = document.getElementById('destination')
     const occupancy = document.getElementById('occupancy')
+    const critOrConst = document.getElementById('critOrConst')
+    const quote = document.getElementById('quote')
+
+    critOrConst.addEventListener('input', () => {
+        if(critOrConst.options[1].selected == true) {
+            quote.disabled = true;
+        } else {
+            quote.disabled = false;
+        }
+    })
 
     destination.addEventListener('input', () => {
         if(destination.options[1].selected == true) {
-            console.log('not a destination')
             occupancy.disabled = true;
         } else {
             occupancy.disabled = false;

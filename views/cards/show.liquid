@@ -38,6 +38,7 @@
                     <p class="mb-0">{{ card.cost }}</p>
                 </div>
             </div>
+            {% if card.destination %}
             <div class="row">
                 <div class="col-md-3 border">
                     <p class="fw-bold mb-0">Destination:</p>
@@ -50,18 +51,19 @@
                     {% endif %}
                 </div>
             </div>
+            {% endif %}
+            {% if card.occupancy %}
             <div class="row ">
                 <div class="col-md-3 border">
                     <p class="fw-bold mb-0">Occupancy:</p>
                 </div>
                 <div class="col-md-9 border">
-                    {% if card.occupancy %}
+                    
                     <p class="mb-0">{{ card.occupancy }}</p>
-                    {% else %}
-                    <p class="mb-0">N/A</p>
-                    {% endif %}
+                    
                 </div>
             </div>
+            {% endif %}
             <div class="row pt-1 border pb-1">
                 <div class="col">
                     <h4 class="mb-0 fw-bold">Effect:</h4>
@@ -91,7 +93,7 @@
     </div>
     
     {% if card.owner == userId %}
-        <div class="btn-group mt-2">
+        <div class="btn-group mt-2 ms-2">
             <a href="/cards/{{ card.id }}/edit" class="btn btn-success rounded-0 mb-3 fw-bold shadow me-2">Edit</a>
             <form action="/cards/{{ card.id }}?_method=DELETE" method="POST">
                 <input type="submit" value="Delete" class="btn btn-danger rounded-0 shadow fw-bold">
