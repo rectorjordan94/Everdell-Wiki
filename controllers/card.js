@@ -41,7 +41,7 @@ const type = ['Tan Traveler', 'Green Production', 'Red Destination', 'Blue Gover
 type.forEach(type => {
 	let typeRoute = type.replace(' ', '%20')
 	router.get(`/${typeRoute}`, (req, res) => {
-		Card.find().where({ type: `${type}` })
+		Card.find().where({ type: `${type}` }).sort({ name: 1 })
 			.then(cards => {
 				console.log(type)
 				const { username, userId, loggedIn } = req.session
@@ -55,7 +55,7 @@ type.forEach(type => {
 router.get('/mine', (req, res) => {
     // destructure user info from req.session
     const { username, userId, loggedIn } = req.session
-	Card.find({ owner: userId })
+	Card.find({ owner: userId }).sort({ name: 1 })
 		.then(cards => {
 			res.render('cards/index', { cards, username, loggedIn })
 		})
