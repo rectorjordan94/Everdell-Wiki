@@ -23,7 +23,7 @@ const router = express.Router()
 
 // index ALL
 router.get('/', (req, res) => {
-	Card.find({}).sort({ name: 'asc' })
+	Card.find({}).sort({ name: 1 })
 		.then(cards => {
 			const username = req.session.username
 			const loggedIn = req.session.loggedIn
